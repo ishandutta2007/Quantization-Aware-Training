@@ -1,6 +1,8 @@
 # Awesome-Quantization-Aware-Training
 
-## Quantization-Aware Training: History, Progression, Variants, & Applications
+<a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a> <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+<img src="assets/banner.svg" alt="Banner" width="100%"/>
+## 🌟 Quantization-Aware Training: History, Progression, Variants, & Applications
 
 **Quantization-Aware Training (QAT)** represents a foundational paradigm shift in the hardware-efficient optimization and edge deployment of deep neural networks. Formally pioneered by Jacob et al. (Google) in 2018 ("Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference"), QAT established a rigorous framework for simulating numerical precision loss directly during the training graph's forward pass. 
 
@@ -25,7 +27,9 @@ flowchart LR
     style LLM_QAT fill:#fbb,stroke:#333,stroke-width:1px
 ```
 
-*   **The Post-Training Truncation Era (PTQ Baseline, Pre-2018)**
+| Feature | Description | Year | Paper |
+|---|---|---|---|
+| The Post-Training Truncation Era | PTQ Baseline | Pre-2018 | [Link](#) |
     *   *Concept:* Models were trained natively using high-precision FP32 or FP16. After training concluded, a separate offline process mapped continuous floating-point values into localized integer formats.
     *   *Limitation:* Created massive mathematical rounding drops and severe accuracy degradation in memory-starved architectures. It failed to account for out-of-distribution outlier activations, rendering ultra-low bit-width deployments non-viable.
 *   **The Simulated Noise Revolution (Straight-Through Estimator QAT, 2018)**
@@ -108,3 +112,15 @@ Executing multi-node QAT pipelines across massive parameter systems introduces d
 To advance this documentation repository, scaling architecture, or MLOps automation pipeline, consider exploring these adjacent development pathways:
 
 
+
+
+##  Star History
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FQuantization-Aware-Training&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Quantization-Aware-Training&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Quantization-Aware-Training&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Quantization-Aware-Training&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
