@@ -13,7 +13,7 @@ Prior to QAT, the deep learning ecosystem relied almost exclusively on Post-Trai
 The implementation of neural network quantization has transitioned from naive post-training truncations to backpropagation-compatible simulated precision noise, shifting toward modern mixed-precision tuning and LLM-scale weight-activation co-optimization.
 
 ```mermaid
-graph LR
+flowchart LR
     PTQ[Post-Training Quantization <br> Naive Truncation] --> QAT_STE[Straight-Through QAT <br> Jacob/Google, 2018]
     QAT_STE --> LSQ[Learned Step-Size QAT <br> Esser, 2020]
     LSQ --> LLM_QAT[LLM-Scale Mixed Precision QAT <br> 2024+]
@@ -63,19 +63,13 @@ Depending on extreme edge storage profiles or token context demands, precision m
     *   *The Shift:* Modern foundation architectures exhibit massive activation spikes in isolated channels. Modern QAT variants mathematically isolate these critical outlier tokens into protected high-precision islands (FP16), while forcing the remaining 99% of standard background distribution channels into dense low-precision blocks.
 
 ```mermaid
-Pre-Training Precision Alignment & Accuracy Frontiers
-Low ┌─────────────────────────────────────────────────────────────┐
-    │ • [Post-Training Quantization (PTQ)]                         │
-    │   (Severe quantization noise drop without network adaptation) │
-    │                                                             │
-Task│ • [Straight-Through Estimator QAT (STE)]                    │
-Perf│   (Simulated rounding noise recovers baseline accuracy)     │
-    │                                                             │
-    │ • [Learned Step-Size (LSQ) / Mixed-Precision QAT]           │
-High └───────────────────────────────────────┴─────────────────────┘
-    (Adapts quantization steps dynamically across tensor layers)
-Low (Aggressive Low-Bit / INT4)             High (High-Precision / FP16)
-Target System Operational Precision Bit-Width
+flowchart TB
+    PTQ["Post-Training Quantization (PTQ)<br>(Severe quantization noise drop without network adaptation)"]
+    STE["Straight-Through Estimator QAT (STE)<br>(Simulated rounding noise recovers baseline accuracy)"]
+    LSQ["Learned Step-Size (LSQ) / Mixed-Precision QAT<br>(Adapts quantization steps dynamically across tensor layers)"]
+    
+    PTQ --> STE
+    STE --> LSQ
 ```
 
 ---
